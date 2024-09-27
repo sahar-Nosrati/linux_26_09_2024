@@ -1,0 +1,159 @@
+ What is Git, and why is it used in version control? 
+  - a distributed version control system that enables software development teams to have multiple local copies of the project's codebase independent of each other.
+
+-------------------------------------------------
+
+Explain the difference between git init and git clone. 
+  - "git init" creates an empty repository 
+  - git clone is used to create a copy of an existing repository
+
+----------------------------------------------------
+
+How do you check the current status of your Git repository?
+  - git status command (git status -s)
+
+-------------------------------------------------
+
+What is the purpose of the .gitignore file? 
+  - to ensure that certain files not tracked by Git remain untracked 
+
+--------------------------------------------------
+
+How do you stage files for commit in Git?
+  - Stage all files: git add .
+  - Stage a file: git add example. html (replace example. html with your file name)
+  - Stage a folder: git add myfolder (replace myfolder with your folder path)
+
+---------------------------------------------------
+
+Explain the difference between git pull and git fetch. 
+  - git pull copies changes from a remote repository directly into your working directory, while git fetch brings it to local repository. 
+
+---------------------------------------------------
+
+How do you create a new branch in Git?
+  - git branch <branchname>
+  - git checkout -b <branchname>
+
+---------------------------------------------------
+
+How do you switch between branches? 
+  - git switch name_Of_Branch command  -> existing branch
+  - git switch -c non-existing-branch
+  - git checkout -b newBranch -> create new branch and switch to it 
+  - git checkout name_Of_Branch -> create new branch and switch to it 
+
+-------------------------------------------------------
+
+How can you view the commit history of a Git repository?
+  - git log (--graph)
+
+-------------------------------------------------------
+
+What is a fast-forward merge? 
+  - if main branch has not been modified while the feature branch has been modified, in this case -> 
+    - main branch goes forward  to end of your feature branch and feature branch will be merged it and the commit(s) of feature branch will be kept. 
+
+---------------------------------------------------------
+
+What is the difference between git merge and git rebase? 
+  - git merge -> combining changes from one branch (source branch) into another branch (target branch)
+  - git rebase ->  way of moving the changes from one branch onto another branch.
+
+---------------------------------------------------------
+
+How do you resolve merge conflicts in Git? 
+
+
+
+
+
+---------------------------------------------------------
+
+What is the purpose of git stash and how is it used? 
+  - Git stash saves the uncommitted changes locally, allowing you to make changes, switch branches, and perform other Git operations.
+    - Stashable files -> untracked files, newly added files and modified files
+  - perform  in order to  retrieve all files put into the stash-> 
+    - git stash pop 
+    - git stash
+
+--------------------------------------------------------
+* Point -> Git Reset command is used to reset or undo changes in Git
+
+
+Explain the difference between git reset --soft, --mixed, and --hard. 
+- Git Reset command is used to reset or undo changes in Git ->
+  - Reset as the reverse process of normal Git Workflow in which we move from the Working Directory to the Staging Area and finally commit changes to the repository ->
+    - Git Reset --soft -> reset changes only in the Repository. It works by changing the position of our HEAD to point to the previous commits
+    - Git Reset --mixed ->  revert changes in the repository by making the HEAD point to one of the previous commits and then also update the Staging Area to previous state of related committing (take snapshot from repository and put (override) on staging area)
+    - Git Reset --hard -> reset the changes in the working directory after resetting the Repository and the Staging Area (take snapshot from repository and put (override) on staging area and working directory)
+
+---------------------------------------------------------------
+
+How do you create and apply tags in Git?
+- git tag -> a marker shows a commit
+- create tag ->
+  - git tag <tagName>
+- evaluation tag -> 
+  - git tag --list 
+- push ti github ->
+  - git push --tags 
+
+------------------------------------------------------
+
+How do you compare the differences between two branches?
+- git diff <name of your first branch> .. <name of your second branch>
+
+------------------------------------------------------
+
+What does git cherry-pick do?
+- cherry-picking is taking a single commit from one branch and adding it as the latest commit on another branch :
+  - check branch that you want to put other commit
+  - git cherry-pick h -> (h -> identifier of considered commit from other branch to current branch)
+
+-* point -> you can do cherry-pick for several commits
+
+------------------------------------------------------
+
+How do you revert a commit in Git?
+-  to record some new commits to reverse the effect of some earlier commits ->
+  - git revert 4945db2 (identifier related commit)
+
+------------------------------------------------------
+
+How do you track a remote repository, and what is the command to push your code to it? 
+- git remote -> at least -> show the default name of cloned server (origin)
+- git remote -v -> show the default name of cloned server  and URL of cloned remote repository 
+
+- git push <name of remote repository>
+
+
+- create remote repository from local repository ->
+  - git init 
+  - git add *
+  - git commit -a -m "initial commit"
+  - git remote add origin git@github.com:username/repo.git 
+
+------------------------------------------------------
+
+Explain what happens during a git push --force.
+- Git push force overwrites the remote repository to match exactly what your local repo looked like when you ran the command.
+
+-----------------------------------------------------
+
+What is a Git hook, and how is it useful in automating tasks? 
+- Git hooks are scripts that run automatically every time a particular event occurs in a Git repository.
+    - encouraging a commit policy
+    - altering the project environment depending on the state of the repository
+    - implementing continuous integration workflows 
+
+------------------------------------------------------
+
+How do you set up a Git workflow for a large team working on a shared repository? ?????
+- Basically there are three kinds of branches when working as a team in git:
+    - master branch
+    - staging branch
+    - feature branch(es)
+
+-------------------------------------------------------
+
